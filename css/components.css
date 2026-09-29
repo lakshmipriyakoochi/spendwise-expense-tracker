@@ -1,0 +1,28 @@
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem; }
+.field { display: grid; gap: .25rem; margin-bottom: .75rem; }
+label { font-size: .875rem; font-weight: 600; }
+input, select, button { font: inherit; }
+input, select { padding: .55rem .65rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); width: 100%; }
+input[aria-invalid="true"], select[aria-invalid="true"] { border-color: var(--danger); }
+.error { color: var(--danger); font-size: .8rem; min-height: 1em; margin: 0; }
+button, .file-btn { padding: .55rem .9rem; border-radius: 6px; border: 1px solid transparent; cursor: pointer; font-weight: 600; }
+.primary { background: var(--accent); color: var(--accent-ink); }
+.ghost { background: transparent; border-color: var(--line); color: var(--ink); }
+button:hover, .file-btn:hover { filter: brightness(1.08); }
+.plain { list-style: none; margin: 0; padding: 0; }
+.big { font-size: 2rem; font-weight: 700; margin: 0 0 .75rem; font-variant-numeric: tabular-nums; color: var(--forecast); }
+#alert { min-height: 1.5em; font-weight: 600; margin: 0 0 .5rem; }
+#alert.over { color: var(--danger); }
+#alert.ok { color: var(--ok); }
+#forecast-list li { display: flex; justify-content: space-between; padding: .25rem 0; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+#chart { width: 100%; height: 260px; display: block; }
+.summary { margin: 0 0 .5rem; }
+.chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .75rem; }
+.chips li { border: 1px solid var(--line); border-radius: 999px; padding: .15rem .7rem; font-size: .8rem; color: var(--muted); }
+table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+th, td { text-align: left; padding: .5rem .4rem; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { color: var(--muted); font-weight: 600; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.actions button { padding: .2rem .5rem; background: transparent; border-color: var(--line); color: var(--ink); margin-left: .25rem; }
+.actions button[data-action="delete"] { color: var(--danger); }
+.empty { color: var(--muted); margin: .75rem 0 0; }

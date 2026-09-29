@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Track spending and see a forecast for next month. Plain HTML, CSS and JavaScript."
+    />
+    <title>SpendWise | Expense Tracker with Spending Forecasts</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>Expense Tracker with Spending Forecasts</h1>
+      <div class="header-actions">
+        <button type="button" id="sample-btn" class="ghost">
+          Load sample data
+        </button>
+        <button type="button" id="export-btn" class="ghost">Export JSON</button>
+        <label class="ghost file-btn"
+          >Import JSON
+          <input
+            type="file"
+            id="import-input"
+            accept="application/json"
+            hidden
+          />
+        </label>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="col-side">
+        <section class="panel" aria-labelledby="form-title">
+          <h2 id="form-title">Add an expense</h2>
+          <form id="expense-form" novalidate>
+            <input type="hidden" id="edit-id" />
+            <div class="field">
+              <label for="title">What was it for?</label>
+              <input
+                id="title"
+                name="title"
+                type="text"
+                maxlength="60"
+                autocomplete="off"
+                aria-describedby="title-error"
+              />
+              <p class="error" id="title-error" role="alert"></p>
+            </div>
+            <div class="row">
+              <div class="field">
+                <label for="amount">Amount (₹)</label>
+                <input
+                  id="amount"
+                  name="amount"
+                  type="number"
+                  step="0.01"
+                  min="0"
+                  inputmode="decimal"
+                  aria-describedby="amount-error"
+                />
+                <p class="error" id="amount-error" role="alert"></p>
+              </div>
+              <div class="field">
+                <label for="date">Date</label>
+                <input
+                  id="date"
+                  name="date"
+                  type="date"
+                  aria-describedby="date-error"
+                />
+                <p class="error" id="date-error" role="alert"></p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="category">Category</label>
+              <select
+                id="category"
+                name="category"
+                aria-describedby="category-error"
+              ></select>
+              <p class="error" id="category-error" role="alert"></p>
+            </div>
+            <div class="row">
+              <button type="submit" id="submit-btn" class="primary">
+                Add expense
+              </button>
+              <button type="button" id="cancel-btn" class="ghost" hidden>
+                Cancel
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel forecast" aria-labelledby="forecast-month">
+          <h2 id="forecast-month">Forecast</h2>
+          <p class="big" id="forecast-total">—</p>
+          <div class="field">
+            <label for="budget">Monthly budget (₹)</label>
+            <input
+              id="budget"
+              type="number"
+              min="0"
+              step="100"
+              inputmode="numeric"
+            />
+          </div>
+          <p id="alert" role="status"></p>
+          <ul class="plain" id="forecast-list"></ul>
+        </section>
+      </div>
+
+      <div class="col-main">
+        <section class="panel" aria-labelledby="trend-title">
+          <h2 id="trend-title">Monthly spending</h2>
+          <canvas
+            id="chart"
+            role="img"
+            aria-label="Bar chart of monthly spending, with the last bar showing the forecast"
+          ></canvas>
+        </section>
+
+        <section class="panel" aria-labelledby="list-title">
+          <div class="list-head">
+            <h2 id="list-title">Expenses</h2>
+            <div class="filters">
+              <label for="filter-category" class="sr-only"
+                >Filter by category</label
+              >
+              <select id="filter-category"></select>
+              <label for="filter-month" class="sr-only">Filter by month</label>
+              <select id="filter-month"></select>
+            </div>
+          </div>
+          <p class="summary">Total shown: <strong id="total">₹0</strong></p>
+          <ul class="plain chips" id="by-category"></ul>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Category</th>
+                  <th scope="col" class="num">Amount</th>
+                  <th scope="col"><span class="sr-only">Actions</span></th>
+                </tr>
+              </thead>
+              <tbody id="expense-body"></tbody>
+            </table>
+          </div>
+          <p id="empty" class="empty">
+            No expenses yet. Add one, or load sample data to try the forecast.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

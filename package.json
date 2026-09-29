@@ -1,0 +1,11 @@
+{
+  "name": "smart-expense-tracker",
+  "version": "1.0.0",
+  "description": "Expense tracker with per-category spending forecasts. Vanilla HTML, CSS and JavaScript.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "start": "npx serve ."
+  },
+  "license": "MIT"
+}

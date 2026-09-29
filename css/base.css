@@ -1,0 +1,20 @@
+:root {
+  --bg: #eaf0f4; --surface: #ffffff; --ink: #16232e; --muted: #5b6b78; --line: #d3dde5;
+  --accent: #0b7a75; --accent-ink: #ffffff; --forecast: #6c5ce7; --danger: #c2255c; --ok: #1f7a4d;
+  --radius: 12px; --gap: 1rem;
+  font-family: "Segoe UI", "Avenir Next", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1a22; --surface: #16252f; --ink: #e6eef3; --muted: #94a7b5; --line: #2a3d4a;
+    --accent: #3cc3bb; --accent-ink: #06201f; --forecast: #a79bff; --danger: #ff7aa2; --ok: #63d69b;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); line-height: 1.5; }
+h1, h2 { margin: 0; line-height: 1.2; }
+h1 { font-size: 1.4rem; }
+h2 { font-size: 1.05rem; margin-bottom: .75rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+:focus-visible { outline: 3px solid var(--forecast); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
